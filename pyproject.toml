@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "torch-cuda-installer"
+version = "0.1.0"
+description = "A tool to automatically install PyTorch packages with CUDA support if available"
+readme = "README.md"
+authors = [{ name = "Güvenç Usanmaz", email = "gusanmaz@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["pytorch", "torch", "cuda", "installer", "deep-learning", "nvidia"]
+dependencies = [
+    "requests",
+]
+requires-python = ">=3.6"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/gusanmaz/torch-cuda-installer"
+
+[project.scripts]
+torch-cuda-installer = "torch_cuda_installer.installer:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["torch_cuda_installer*"]
